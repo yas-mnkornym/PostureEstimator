@@ -1,0 +1,59 @@
+﻿<Window x:Class="ExperienceForTest.Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:controls="clr-namespace:ExperienceForTest.Calculator.Views"
+        Title="MainWindow" Height="350"
+		SizeToContent="Width"
+		>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+		<Grid Grid.Row="0">
+            <TabControl>
+                <TabItem Header="2D">
+                    <Viewbox Stretch="Uniform">
+                    <controls:Monitor2DControl
+					DataContext="{Binding Path=Monitor2dVm}"
+					Background="White"
+					Width="{Binding Path=FrameValue.Width}"
+					Height="{Binding Path=FrameValue.Height}"/>
+                    </Viewbox>
+                </TabItem>
+                <TabItem Header="3D">
+                    <controls:Monitor3DControl
+                        DataContext="{Binding Path=Monitor3dVm}" />
+                </TabItem>
+            </TabControl>
+			<Viewbox Stretch="Uniform">
+			</Viewbox>
+		</Grid>
+
+
+		<Grid Grid.Row="1" Margin="2">
+			<StackPanel>
+
+				<StackPanel HorizontalAlignment="Left"
+                            Orientation="Horizontal">
+                    <Button Content="Open"
+                            Margin="2"
+                            MinWidth="75"
+                            Command="{Binding Path=OpenCommand}"/>
+                    <Button Content="Calc"
+                            Margin="2"
+                            MinWidth="75"
+                            Command="{Binding Path=CalcCommand}"/>
+                </StackPanel>
+
+				<Separator />
+				<controls:Restruct3dControl 
+					DataContext="{Binding Path=Reconstruct3dVm}" />
+
+				<Separator />
+                <TextBlock Text="{Binding Path=Status}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

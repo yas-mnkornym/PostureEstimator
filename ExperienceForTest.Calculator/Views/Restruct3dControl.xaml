@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="ExperienceForTest.Calculator.Views.Restruct3dControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+	<UserControl.Resources>
+		<Style TargetType="{x:Type TextBlock}">			
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+	</UserControl.Resources>
+	<Grid>
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0"
+                    Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Size of the rectangle(WxH):</TextBlock>
+                <TextBox Text="{Binding Path=MarkerParameter.Width}"
+                                 MinWidth="30"/>
+                <TextBlock>x</TextBlock>
+                <TextBox Text="{Binding Path=MarkerParameter.Height}"
+                                 MinWidth="30" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                                Margin="10,0,0,0">
+                <TextBlock Margin="0,3">Camera matrix(fx, fy, cx, cy):</TextBlock>
+                <TextBox Text="{Binding Path=CameraParameter.FocalLengthX}"
+                                 MinWidth="30"/>
+                <TextBlock>,</TextBlock>
+                <TextBox Text="{Binding Path=CameraParameter.FocalLengthY}"
+                                 MinWidth="30" />
+                <TextBlock>,</TextBlock>
+                <TextBox Text="{Binding Path=CameraParameter.CenterX}"
+                                 MinWidth="30" />
+                <TextBlock>,</TextBlock>
+                <TextBox Text="{Binding Path=CameraParameter.CenterY}"
+                                 MinWidth="30" />
+            </StackPanel>
+        </StackPanel>
+
+        <Button Content="Reconstruct"
+                Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+					MinWidth="75"
+					Margin="5,0,0,0"
+					Command="{Binding Path=ReconstructCommand}" />
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock DataContext="{Binding Path=Transform.Rotation}">
+                    <Run Text="Rotation:" />
+                    <Run Text="{Binding Path=X}" />
+                    <Run Text="," />
+                    <Run Text="{Binding Path=Y}" />
+                    <Run Text="," />
+                    <Run Text="{Binding Path=Z}" />
+            </TextBlock>
+
+            <TextBlock DataContext="{Binding Path=Transform.Translation}"
+                       Margin="10,0,0,0">
+                    <Run Text="Translation:" />
+                    <Run Text="{Binding Path=X}" />
+                    <Run Text="," />
+                    <Run Text="{Binding Path=Y}" />
+                    <Run Text="," />
+                    <Run Text="{Binding Path=Z}" />
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
