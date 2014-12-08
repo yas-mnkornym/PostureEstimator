@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56740DD2-C435-4428-AB2B-471E579E93A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartLaserScannerControl</RootNamespace>
+    <AssemblyName>SmartLaserScannerControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ventuz.OSC, Version=1.4.1.0, Culture=neutral, PublicKeyToken=53b1e9eee2bff606, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\OSC\Ventuz.OSC.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandData.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\Hardware\ResetHardwareCommand.cs" />
+    <Compile Include="Commands\Loops\AdjustContrastCommand.cs" />
+    <Compile Include="Commands\Loops\AdjustMinusAngleCommand.cs" />
+    <Compile Include="Commands\Loops\AdjustRenderFractionCommand.cs" />
+    <Compile Include="Commands\Loops\SetAutoThresholdModeCommand.cs" />
+    <Compile Include="Commands\ResumeCommand.cs" />
+    <Compile Include="Commands\Hardware\ShowMirrorLimitsCommand.cs" />
+    <Compile Include="Commands\SetSendModeCommand.cs" />
+    <Compile Include="Commands\StandbyCommand.cs" />
+    <Compile Include="Commands\Loops\AdjustPlusAngleCommand.cs" />
+    <Compile Include="Commands\Loops\SetSizeCommand.cs" />
+    <Compile Include="Commands\Loops\SetSizeFactorCommand.cs" />
+    <Compile Include="Commands\Loops\SetSpeedCommand.cs" />
+    <Compile Include="Commands\Loops\SetSpeedFactorCommand.cs" />
+    <Compile Include="Devices\NetworkSlsDevice.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ISlsDevice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libraries\OSC\Ventuz.OSC.chm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libraries\OSC\Ventuz.OSC.dll" />
+    <Resource Include="Libraries\OSC\Ventuz.OSC.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
