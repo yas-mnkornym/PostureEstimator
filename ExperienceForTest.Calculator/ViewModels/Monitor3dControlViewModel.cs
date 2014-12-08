@@ -57,10 +57,10 @@ namespace ExperienceForTest.Calculator.ViewModels
 			gl.MatrixMode(OpenGL.GL_PROJECTION);
 			gl.LoadIdentity();
 			gl.Perspective(
-				60.0,
+				45.0,
 				(double)640 / 480,
-				0.1,
-				100.0);
+				0.01,
+				10.0); // 単位はm この場合10m
 			gl.LookAt(
 				0.0, 0.0, 0.0,
 				0.0, 0.0, 1.0,
@@ -88,19 +88,14 @@ namespace ExperienceForTest.Calculator.ViewModels
 			gl.LoadIdentity();
 
 			// 回転とかうんことか
-			if (transform_ != null) {
-				gl.LookAt(
-					0, 0, 0,
-					Transform.Translation.X, transform_.Translation.Y, transform_.Translation.Z,
-					0, 0, 1);
-
+			if (transform_ != null || true) {
 				gl.PushMatrix();
 
-				gl.Translate(Transform.Translation.X, Transform.Translation.Y, Transform.Translation.Z);
+				gl.Translate(-Transform.Translation.X, -Transform.Translation.Y, -Transform.Translation.Z);
 				gl.Rotate((float)(Transform.Rotation.X * 18.00 / Math.PI),
 					(float)(Transform.Rotation.Y * 180.0 / Math.PI),
 					(float)(Transform.Rotation.Z * 180.0 / Math.PI));
-				gl.Scale(260, 140, 1);
+				gl.Scale(0.22, 0.14, 1); // 実際の大きさ(cm)に変換
 				
 
 				gl.Color(1.0, 0.0, 1.0, 1.0);

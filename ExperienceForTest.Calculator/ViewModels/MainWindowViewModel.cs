@@ -263,8 +263,8 @@ namespace ExperienceForTest.Calculator.ViewModels
 									CenterY = 2.9005238051336592e+03
 								},
 								MarkerParameter = new RectangleMarkerParameter {
-									Width = 260 - 40,
-									Height = 180 - 40
+									Width = 0.22,
+									Height = 0.14
 								},
 								Square = square
 							};
