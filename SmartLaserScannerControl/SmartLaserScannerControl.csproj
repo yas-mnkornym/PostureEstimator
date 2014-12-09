@@ -52,6 +52,7 @@
     <Compile Include="Commands\Loops\SetAutoThresholdModeCommand.cs" />
     <Compile Include="Commands\ResumeCommand.cs" />
     <Compile Include="Commands\Hardware\ShowMirrorLimitsCommand.cs" />
+    <Compile Include="Commands\SetBehaviorCommand.cs" />
     <Compile Include="Commands\SetSendModeCommand.cs" />
     <Compile Include="Commands\StandbyCommand.cs" />
     <Compile Include="Commands\Loops\AdjustPlusAngleCommand.cs" />
